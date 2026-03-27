@@ -181,26 +181,54 @@ Draft → Confirmed → Delivered
 
 ```
 vimko_project/
-├── core/
-│   ├── templates/
+│
+├── manage.py
+├── db.sqlite3
+├── requirements.txt
+│
+├── vimko_project/          # Main Project Config (Backend Core)
+│   ├── __init__.py
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── core/                   # Main App (Backend + Frontend Logic)
+│   ├── migrations/
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── models.py
+│   ├── views.py
+│   ├── urls.py
+│   ├── forms.py
+│   ├── serializers.py     # (DRF use kar raha hai toh)
+│
+│   ├── templates/         # Frontend (Django Templates)
 │   │   └── core/
 │   │       ├── base.html
 │   │       ├── home.html
+│   │
 │   │       ├── product_list.html
 │   │       ├── product_form.html
+│   │
 │   │       ├── dealer_list.html
 │   │       ├── dealer_form.html
+│   │
 │   │       ├── inventory_list.html
 │   │       ├── inventory_form.html
+│   │
 │   │       ├── order_list.html
 │   │       ├── order_form.html
 │   │       └── order_detail.html
-│   └── static/
+│
+│   └── static/            # Static Files (CSS, JS)
 │       └── core/
-│           ├── css/style.css
-│           └── js/main.js
-└── vimko_project/
-    └── settings.py
+│           ├── css/
+│           │   └── style.css
+│           └── js/
+│               └── main.js
+│
+└── media/                 # (Optional - future use)
 ```
 
 ---
