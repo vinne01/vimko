@@ -1,0 +1,32 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2>Order Details: {{ order.order_number }}</h2>
+<p>Dealer: {{ order.dealer.name }}</p>
+<p>Status: {{ order.status }}</p>
+
+<h4>Items</h4>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Qty</th>
+            <th>Unit Price</th>
+            <th>Line Total</th>
+            <th>Available Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in order.items.all %}
+        <tr class="{% if item.quantity > item.product.inventory.quantity %}table-danger{% endif %}">
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.unit_price }}</td>
+            <td>{{ item.line_total }}</td>
+            <td>{{ item.product.inventory.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{% url 'order_list' %}" class="btn btn-secondary">Back</a>
+{% endblock %}

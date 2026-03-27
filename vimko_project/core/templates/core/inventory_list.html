@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<h2 class="mb-3">Inventory List</h2>
+{% if request.user.is_staff %}
+<a href="{% url 'inventory_create' %}" class="btn btn-warning mb-3">
+    ➕ Add Inventory
+</a>
+{% endif %}
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for inv in inventory %}
+        <tr>
+            <td>{{ inv.product.name }}</td>
+            <td>
+                {% if inv.quantity <= 0 %}
+                    <span class="text-danger fw-bold">Out of Stock</span>
+                {% else %}
+                    {{ inv.quantity }}
+                {% endif %}
+            </td>
+            <td>
+                {% if request.user.is_staff %}
+                <a href="{% url 'inventory_update' inv.product.id %}" class="btn btn-primary btn-sm">
+                    Edit
+                </a>
+                {% endif %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="3" class="text-center">No inventory found</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

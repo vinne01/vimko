@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="mb-4">Welcome to Vimko Inventory Management</h1>
+    <p>Manage Products, Dealers, Inventory, and Orders efficiently.</p>
+
+    <div class="row mt-5 g-3">
+        <div class="col-md-3">
+            <a href="{% url 'product_list' %}" class="btn btn-primary w-100 py-3">Products</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'dealer_list' %}" class="btn btn-success w-100 py-3">Dealers</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'inventory_list' %}" class="btn btn-warning w-100 py-3">Inventory</a>
+        </div>
+        <div class="col-md-3">
+            <a href="{% url 'order_list' %}" class="btn btn-info w-100 py-3">Orders</a>
+        </div>
+       
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>Dealers</h2>
+    <a href="{% url 'dealer_create' %}" class="btn btn-success mb-3">Add Dealer</a>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dealer in dealers %}
+            <tr>
+                <td>{{ dealer.name }}</td>
+                <td>{{ dealer.email }}</td>
+                <td>{{ dealer.phone }}</td>
+                <td>
+                    <a href="{% url 'dealer_update' dealer.id %}" class="btn btn-primary btn-sm">Edit</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr><td colspan="4">No dealers found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
