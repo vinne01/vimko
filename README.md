@@ -181,15 +181,26 @@ Draft → Confirmed → Delivered
 
 ```
 vimko_project/
-│
 ├── core/
-│   ├── models.py
-│   ├── views.py
 │   ├── templates/
-│   ├── static/
-│
-├── manage.py
-├── db.sqlite3
+│   │   └── core/
+│   │       ├── base.html
+│   │       ├── home.html
+│   │       ├── product_list.html
+│   │       ├── product_form.html
+│   │       ├── dealer_list.html
+│   │       ├── dealer_form.html
+│   │       ├── inventory_list.html
+│   │       ├── inventory_form.html
+│   │       ├── order_list.html
+│   │       ├── order_form.html
+│   │       └── order_detail.html
+│   └── static/
+│       └── core/
+│           ├── css/style.css
+│           └── js/main.js
+└── vimko_project/
+    └── settings.py
 ```
 
 ---
@@ -221,4 +232,4 @@ python manage.py runserver
 
 ## 👨‍💻 Author
 
-**Vinay Maurya**
+**Vinay Kumar Maurya**
