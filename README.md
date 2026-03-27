@@ -142,7 +142,7 @@ Frontend is built using:
 * Order created successfully
 * Inventory auto-updated
 
-![Success](https://ik.imagekit.io/vinaymry/orderedge2.png)
+![Success](https://ik.imagekit.io/vinaymry/ordercomplete.png?updatedAt=1774605126895)
 
 ---
 
